@@ -1,8 +1,13 @@
 # 🏆 Automated World Cup Data Pipeline (ELT)
 
-
 ## 📌 Project Overview
 This project is an automated ELT (Extract, Load, Transform) data pipeline built with Apache Airflow and PostgreSQL. It dynamically extracts football match statistics from the football-data.org REST API, stages the raw JSON payloads, and transforms the highly nested data into a robust Star Schema optimized for analytics and BI reporting.
+
+## 🛠️ Tech Stack
+1. Orchestration & Infrastructure: Apache Airflow, Docker Compose
+2. Database / Data Warehouse: PostgreSQL
+3. Programming Language - Python (Data Processing, API Interactions)
+4. Scripting Language - SQL
 
 ## 🏗️ Architecture & Data Flow
 The pipeline follows a modern ELT architecture, leveraging PostgreSQL's powerful native JSON compute capabilities for transformations rather than processing data in memory.
@@ -39,11 +44,12 @@ Employs DISTINCT ON to safely handle multiple referees per match without causing
 
 Upsert Logic: Uses PostgreSQL's ON CONFLICT (id) DO UPDATE SET to seamlessly update existing records (e.g., when a match status changes from "IN_PLAY" to "FINISHED") without dropping tables.
 
-## 🛠️ Tech Stack
-Orchestration: Apache Airflow (Python)
+## 🐳 Docker Infrastructure & Local Environment
+This project is fully containerized using Docker Compose, making it easy to deploy on any machine while mimicking a real-world enterprise setup:
 
-Database / Data Warehouse: PostgreSQL
+Containerized Execution: The entire pipeline, from the orchestrator to the database, runs within Docker containers, eliminating complex local installations.
 
-Data Processing: Pandas, SQL (JSONB functions)
+Production-Like Separation: To follow data engineering best practices, the Apache Airflow system (which runs the pipeline) and the PostgreSQL Data Warehouse (which stores the finalized data) are kept in completely separate, isolated containers.
 
-API Interactions: Python requests library
+Developer Friendly: The environment is configured with live code-syncing—meaning changes to your Python DAGs update instantly in the UI—and persistent storage, so your downloaded tournament data is never lost when the containers are shut down.
+
