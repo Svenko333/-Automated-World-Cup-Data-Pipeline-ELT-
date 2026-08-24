@@ -18,7 +18,7 @@ Load (Staging): The raw JSON payload is loaded directly into a staging_wc_stats 
 
 Transform (Dimensional Modeling): Airflow executes a parallelized series of SQL Upsert operations (INSERT ... ON CONFLICT DO UPDATE). These queries utilize advanced PostgreSQL JSON operators (->>, #>>, jsonb_array_elements) to unpack nested dictionaries and arrays directly into relational Dimension and Fact tables.
 
-![Project Architecture](World Cup Data Pipeline Project.png)
+![Project Architecture](https://github.com/Svenko333/-Automated-World-Cup-Data-Pipeline-ELT-/blob/main/World%20Cup%20Data%20Pipeline%20Project.png)
 
 
 ## 🗄️ Data Model (Star Schema)
