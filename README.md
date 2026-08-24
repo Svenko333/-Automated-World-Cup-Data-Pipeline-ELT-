@@ -1,4 +1,4 @@
-🏆 Automated World Cup Data Pipeline (ELT)
+## 🏆 Automated World Cup Data Pipeline (ELT)
 
 
 📌 Project Overview
