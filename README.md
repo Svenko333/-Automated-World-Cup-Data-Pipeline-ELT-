@@ -18,6 +18,9 @@ Load (Staging): The raw JSON payload is loaded directly into a staging_wc_stats 
 
 Transform (Dimensional Modeling): Airflow executes a parallelized series of SQL Upsert operations (INSERT ... ON CONFLICT DO UPDATE). These queries utilize advanced PostgreSQL JSON operators (->>, #>>, jsonb_array_elements) to unpack nested dictionaries and arrays directly into relational Dimension and Fact tables.
 
+![Project Architecture](https://github.com/Svenko333/FPL-data-engineering-AWS-Snowflake-project/blob/main/FPL%20Project.jpg)
+
+
 ## 🗄️ Data Model (Star Schema)
 The transformed data is structured into a Star Schema to facilitate fast analytical querying.
 
